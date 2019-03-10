@@ -5,7 +5,13 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');         // http request logger 
 const app = express();
 const router = require('./router');
+const mongoose = require('mongoose');
+
+// db setup
+mongoose.connect('mongodb://admin:password3@ds163905.mlab.com:63905/servertesting', { useNewUrlParser: true, useCreateIndex: true });
 // nodemon.js, auto restart when code changes
+
+
 
 // App setup
 app.use(morgan('combined'));
