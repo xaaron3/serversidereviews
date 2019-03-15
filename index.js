@@ -6,6 +6,7 @@ const morgan = require('morgan');         // http request logger
 const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // db setup
 mongoose.connect('mongodb://admin:password3@ds163905.mlab.com:63905/servertesting', { useNewUrlParser: true, useCreateIndex: true });
@@ -15,6 +16,7 @@ mongoose.connect('mongodb://admin:password3@ds163905.mlab.com:63905/servertestin
 
 // App setup
 app.use(morgan('combined'));
+app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
 router(app);
 
